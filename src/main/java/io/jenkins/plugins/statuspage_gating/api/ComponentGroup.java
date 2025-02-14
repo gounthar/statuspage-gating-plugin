@@ -25,7 +25,6 @@ package io.jenkins.plugins.statuspage_gating.api;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.jenkins.plugins.gating.ResourceStatus;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;

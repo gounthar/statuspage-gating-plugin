@@ -29,7 +29,10 @@ import io.jenkins.plugins.gating.ResourceStatus;
 import javax.annotation.Nonnull;
 import java.util.logging.Level;
 
-import static io.jenkins.plugins.gating.ResourceStatus.Category.*;
+import static io.jenkins.plugins.gating.ResourceStatus.Category.DEGRADED;
+import static io.jenkins.plugins.gating.ResourceStatus.Category.DOWN;
+import static io.jenkins.plugins.gating.ResourceStatus.Category.UNKNOWN;
+import static io.jenkins.plugins.gating.ResourceStatus.Category.UP;
 
 /**
  * @see <a href="https://developer.statuspage.io/#tag/components">Api Docs</a>
