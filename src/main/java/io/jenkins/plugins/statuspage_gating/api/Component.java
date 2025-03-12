@@ -31,7 +31,6 @@ import java.util.logging.Level;
 
 import static io.jenkins.plugins.gating.ResourceStatus.Category.DEGRADED;
 import static io.jenkins.plugins.gating.ResourceStatus.Category.DOWN;
-import static io.jenkins.plugins.gating.ResourceStatus.Category.UNKNOWN;
 import static io.jenkins.plugins.gating.ResourceStatus.Category.UP;
 
 /**
@@ -53,10 +52,10 @@ public final class Component extends AbstractObject {
 
         @JsonCreator // Needed for Jackson to comprehend the "" -> UNKNOWN transition, that cannot be expressed through JsonProperty
         public static @Nonnull Status forValue(String value) {
-            if ("".equals(value)) return UNKNOWN;
+            if (value == null || value.isEmpty()) return UNKNOWN;
             try {
                 return valueOf(value.toUpperCase());
-            } catch (NullPointerException|IllegalArgumentException ex) {
+            } catch (IllegalArgumentException ex) {
                 LOGGER.log(Level.WARNING, "Failed to deserialize Component Status from '" + value + "'", ex);
                 return UNKNOWN;
             }
